@@ -34,21 +34,21 @@ Moose::Exporter->setup_import_methods(
 
 =head2 use_test_packages
 
-The most common customizations have been added to the class import. Your test runner will be customized based upon what you pass in to C<use>.
+The first thing your test runner needs to do is call this method to tell it what packages need to be included in your test. 
 
 =head2 COMMON CASES
 
-=head3 EXAMPLE 1
+Before describing the options, here are some examples of how to use this subroutine.
 
-Before describing each option in detail, here's a few common cases.
+=head3 EXAMPLE 1
 
   use_test_packages
       -base_package => 'My::Project::Test',
       -test_path    => 't/lib';
 
-=head3 EXAMPLE 2
-
 This is pretty much the simplest case. This will load and run all the packages starting with the name "My::Project::Test" found in the project's F<t/lib> directory. I show the C<< -test_path >> option here, but in this case it's redundant. Your test path is assumed to be F<t/lib> in the usual case.
+
+=head3 EXAMPLE 2
 
   use_test_packages
       -test_packages => [ qw(
@@ -57,22 +57,7 @@ This is pretty much the simplest case. This will load and run all the packages s
           My::Project::Test::Three
       ) ];
 
-=head3 EXAMPLE 3
-
-This doesn't actually use the C<< use_test_packages >> method, but shows one way how you can manipulate the attributes directly to do something even more complex.
-
-  # For the truly badly named tests
-  has '+test_packages' => (
-      default => sub {
-          my @classes;
-          for (1 .. 100) {
-              my $number = num2en($_);
-              $number =~ s/\W//g;
-              push @classes, 'My::Project::Test::' . ucfirst($number);
-          }
-          return \@classes;
-      },
-  );
+Rather than searching for any test packages you might have in your test folder, you might prefer to explicitly list them.
 
 =head3 OPTIONS
 
