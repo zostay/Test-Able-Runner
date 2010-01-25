@@ -111,7 +111,7 @@ sub build_test_objects {
 
     # Load all the test objects
     my @test_objects;
-    PACKAGE: for my $test_class ($meta->test_classes) {
+    PACKAGE: for my $test_class ($meta->name, $meta->test_classes) {
 
         # Attempt to load the classes
         unless (Class::MOP::load_class($test_class)) {
