@@ -21,7 +21,7 @@ Test::Able::Runner - use Test::Able without a bunch of boilerplate
 
 I like L<Test::Able>. I really don't like having to copy my boilerplate test runner and modify it when I use it in a new project. This provides a basic test runner for your testable tests that takes care of the basics for you. You can extend it a bit to customize things if you like as well. Let me know if you want this to do something else.
 
-This assumes that you want to run several tests as a group within a single Perl interpreter. If this is not what you want, then you don't want this module.
+This mostly assumes that you want to run several tests as a group within a single Perl interpreter. If this is not what you want, then you probably don't want this module.
 
 =cut
 
@@ -139,6 +139,25 @@ sub run {
     $runner->meta->setup_test_objects;
     $runner->meta->run_tests;
 }
+
+=head1 COOKBOOK
+
+Here are some other things you might like to try.
+
+=head2 Test Runner Tests
+
+The test runner itself may have tests if you want. The test runner classes uses the usual L<Test::Able> bits, so this works. Similarly, you can do setup, teardown, and all the rest in your runner.
+
+  use Test::Able::Runner;
+
+  use_test_packages
+      -base_package => 'Foo::Test';
+
+  test plan => 1, test_something => sub {
+      ok(1);
+  };
+
+  run;
 
 =head1 AUTHOR
 
