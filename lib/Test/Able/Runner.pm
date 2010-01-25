@@ -100,7 +100,7 @@ sub use_test_packages {
         if $options{-base_package};
     $meta->test_packages( $options{-test_packages} )
         if $options{-test_packages};
-    $meta->test_paths( $options{-test_path} )
+    $meta->test_path( $options{-test_path} )
         if $options{-test_path};
 }
 
