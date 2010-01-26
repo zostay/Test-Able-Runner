@@ -88,11 +88,11 @@ This method returns all the test objects that should be run by this runner. It w
 
 It retrieves a list of potential test classes using L</test_classes>. 
 
-=item 1
+=item 2
 
 It checks each package and throws away those with a package global variable named C<< $NOT_A_TEST >> that has been set to a true value. 
 
-=item 1
+=item 3
 
 It instantiates the test classes and returns an arrayref of those test objects.
 
