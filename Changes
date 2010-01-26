@@ -1,0 +1,7 @@
+0.01    January 26, 2010
+
+  * Initial release.
+  * Provides basic test runner via use_test_packages by base package or a list
+    of test packages. Allows you to choose your test paths.
+  * Tests are run via the "run" function.
+  * Test runners may have their own tests
