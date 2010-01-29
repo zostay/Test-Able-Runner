@@ -17,6 +17,7 @@ test plan => 2, finds_packages => sub {
             Test::Test::Able::Runner::Dickory
             Test::Test::Able::Runner::Dock
             Test::Test::Able::Runner::Hickory
+            Test::Test::Able::Runner::Role
         ) ],
         'hickory, dickory, dock packages'
     );

@@ -120,6 +120,9 @@ sub build_test_objects {
             next PACKAGE;
         }
 
+        # Only Test::Able::Objects are tests we want
+        next PACKAGE unless $test_class->isa('Test::Able::Object');
+
         # Make sure this test has not been excluded
         {
             no strict 'refs';
