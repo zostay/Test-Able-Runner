@@ -1,4 +1,8 @@
-0.01    January 26, 2010
+1.001   January 29, 2010
+
+  * Don't try to run any class, but Test::Able::Object classes
+
+1.000   January 26, 2010
 
   * Initial release.
   * Provides basic test runner via use_test_packages by base package or a list
