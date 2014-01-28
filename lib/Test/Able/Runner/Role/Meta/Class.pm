@@ -1,5 +1,6 @@
 package Test::Able::Runner::Role::Meta::Class;
 use Moose::Role;
+use Class::Load;
 
 =head1 NAME
 
@@ -114,7 +115,7 @@ sub build_test_objects {
     PACKAGE: for my $test_class ($meta->name, $meta->test_classes) {
 
         # Attempt to load the classes
-        unless (Class::MOP::load_class($test_class)) {
+        unless (Class::Load::load_class($test_class)) {
             warn $@ if $@;
             warn "FAILED TO LOAD $test_class. Skipping.";
             next PACKAGE;
