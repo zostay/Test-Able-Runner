@@ -1,3 +1,9 @@
+1.002   January 28, 2014
+
+  * Fix [rt.cpan.org #90922] reported by Upasana Shukla and patched by Zoffix
+    Znet. The use of Class::MOP::load_class() is deprecated. Use
+    Class::Load::load_class() instead.
+
 1.001   January 29, 2010
 
   * Don't try to run any class, but Test::Able::Object classes
